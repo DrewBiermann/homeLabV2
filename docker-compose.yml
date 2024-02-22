@@ -31,3 +31,4 @@ include:
  
   # CORE
   - compose/$HOSTNAME/socket-proxy.yml
+  - compose/$HOSTNAME/traefik.yml

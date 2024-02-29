@@ -87,5 +87,5 @@ services:
       # Services - API
       - "traefik.http.routers.traefik-rtr.service=api@internal"
       # Middlewares
-      - "traefik.http.routers.traefik-rtr.middlewares=middlewares-rate-limit@file,middlewares-secure-headers@file,middlewares-basic-auth@file,middlewares-compress@file"
+      - "traefik.http.routers.traefik-rtr.middlewares=chain-basic-auth@file"
 #end

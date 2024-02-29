@@ -1,3 +1,4 @@
+services:
 # MariaDB - MySQL Database
   mariadb:
     container_name: mariadb

@@ -7,7 +7,7 @@ services:
     security_opt:
       - no-new-privileges:true
     networks:
-      - t2_proxy
+      - socket_proxy
 # Guacamole - Remote desktop, SSH, on Telnet on any HTML5 Browser 
 # Create all databases and tables first
   guacamole:
@@ -15,7 +15,7 @@ services:
     container_name: guacamole
     restart: unless-stopped
     networks:
-      - t2_proxy
+      - socket_proxy
     security_opt:
       - no-new-privileges:true
 #    ports:

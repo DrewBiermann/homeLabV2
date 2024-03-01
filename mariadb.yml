@@ -5,7 +5,7 @@ services:
     image: linuxserver/mariadb:latest
     restart: always
     networks:
-      - t2_proxy
+      - socket_proxy
     security_opt:
       - no-new-privileges:true
 #    ports:

@@ -33,8 +33,8 @@ services:
       - "traefik.http.routers.guacamole-rtr.entrypoints=https"
       - "traefik.http.routers.guacamole-rtr.rule=Host(`guac.$DOMAINNAME_CLOUD_SERVER`)"
       - "traefik.http.routers.guacamole-rtr.tls=true"
-      ## Middlewares
-      - "traefik.http.routers.guacamole-rtr.middlewares=chain-authelia@file,add-guacamole" 
+      # Middlewares
+      - "traefik.http.routers.guacamole-rtr.middlewares=chain-basic-auth@file,add-guacamole"
       - "traefik.http.middlewares.add-guacamole.addPrefix.prefix=/guacamole"
       ## HTTP Services
       - "traefik.http.routers.guacamole-rtr.service=guacamole-svc"

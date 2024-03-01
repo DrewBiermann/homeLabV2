@@ -30,7 +30,7 @@ services:
     labels:
       - "traefik.enable=true"
       ## HTTP Routers
-      - "traefik.http.routers.guacamole-rtr.entrypoints=https"
+      - "traefik.http.routers.guacamole-rtr.entrypoints=websecure"
       - "traefik.http.routers.guacamole-rtr.rule=Host(`guac.$DOMAINNAME_1`)"
       - "traefik.http.routers.guacamole-rtr.tls=true"
       # Middlewares

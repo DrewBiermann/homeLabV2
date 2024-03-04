@@ -6,7 +6,7 @@ services:
     networks:
       - socket_proxy
     environment:
-      - TZ=$TZ
+      #- TZ=$TZ
       REDIS_HOST: nc-redis
     volumes:
       - $DOCKERDIR/appdata/nextcloud/data/config:/config
@@ -14,7 +14,6 @@ services:
       - $DOCKERDIR/appdata/nextcloud/data/samba:/etc/samba
     #ports:
     #  - 443:443
-    restart: unless-stopped
     secrets:
       db_password:
         file: $DOCKERDIR/secrets/db_password

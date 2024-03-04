@@ -5,6 +5,6 @@ services:
       hostname: nc-redis
       restart: unless-stopped
       networks:
-        - t2_proxy
+        - socket_proxy
       volumes:
         - $DOCKERDIR/appdata/nextcloud/data:/data

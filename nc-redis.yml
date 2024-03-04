@@ -1,0 +1,10 @@
+services:
+  nc-redis:
+      image: redis:6.2-alpine
+      container_name: nc-redis
+      hostname: nc-redis
+      restart: unless-stopped
+      networks:
+        - t2_proxy
+      volumes:
+        - $DOCKERDIR/appdata/nextcloud/data:/data

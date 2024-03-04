@@ -36,3 +36,5 @@ include:
   - compose/$HOSTNAME/homepage.yml
   - compose/$HOSTNAME/mariadb.yml
   - compose/$HOSTNAME/guacamole.yml
+  - compose/$HOSTNAME/nextcloud.yml
+  - compose/$HOSTNAME/nc-redis.yml

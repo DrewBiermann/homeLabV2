@@ -1,0 +1,34 @@
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    restart: unless-stopped
+    networks:
+      - socket_proxy
+    environment:
+      - TZ=$TZ
+      - $NC_MYSQL_PASSWORD
+      REDIS_HOST: nc-redis
+    volumes:
+      - $DOCKERDIR/appdata/nextcloud/data/config:/config
+      - $DOCKERDIR/appdata/nextcloud/data:/data
+      - $DOCKERDIR/appdata/nextcloud/data/samba:/etc/samba
+    #ports:
+    #  - 443:443
+    restart: unless-stopped
+    secrets:
+      db_password:
+        file: $DOCKERDIR/secrets/db_password
+      db_root_password:
+        files: $DOCKERDIR/secrets/db_root_password
+    labels:
+      - "traefik.enable=true"
+      ## HTTP Routers
+      - "traefik.http.routers.nextcloud-rtr.entrypoints=https"
+      - "traefik.http.routers.nextcloud-rtr.rule=Host(`nextcloud.$DOMAINNAME`)"
+      - "traefik.http.routers.nextcloud-rtr.tls=true"
+      ## Middlewares
+      - "traefik.http.routers.nextcloud-rtr.middlewares=chain-no-auth@file" 
+      ## HTTP Services
+      - "traefik.http.routers.nextcloud-rtr.service=nextcloud-svc"
+      - "traefik.http.services.nextcloud-svc.loadbalancer.server.port=80"

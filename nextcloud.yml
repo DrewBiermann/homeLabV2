@@ -15,10 +15,8 @@ services:
     #ports:
     #  - 443:443
     secrets:
-      db_password:
-        file: $DOCKERDIR/secrets/db_password
-      db_root_password:
-        files: $DOCKERDIR/secrets/db_root_password
+      - db_password
+      - db_root_password
     labels:
       - "traefik.enable=true"
       ## HTTP Routers

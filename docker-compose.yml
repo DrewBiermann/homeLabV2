@@ -23,6 +23,10 @@ secrets:
     file: $DOCKERDIR/secrets/basic_auth_credentials
   cf_dns_api_token:
     file: $DOCKERDIR/secrets/cf_dns_api_token
+  db_password:
+    file: $DOCKERDIR/secrets/db_password
+  db_root_password:
+    file: $DOCKERDIR/secrets/db_root_password
     
 include:
   ########################### SERVICES

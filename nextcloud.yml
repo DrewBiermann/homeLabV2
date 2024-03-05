@@ -20,7 +20,7 @@ services:
     labels:
       - "traefik.enable=true"
       ## HTTP Routers
-      - "traefik.http.routers.nextcloud-rtr.entrypoints=https"
+      - "traefik.http.routers.nextcloud-rtr.entrypoints=websecure"
       - "traefik.http.routers.nextcloud-rtr.rule=Host(`nextcloud.$DOMAINNAME_1`)"
       - "traefik.http.routers.nextcloud-rtr.tls=true"
       ## Middlewares

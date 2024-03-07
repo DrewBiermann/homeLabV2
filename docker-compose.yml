@@ -27,6 +27,12 @@ secrets:
     file: $DOCKERDIR/secrets/db_password
   db_root_password:
     file: $DOCKERDIR/secrets/db_root_password
+  authelia_jwt_secret:
+    file: $DOCKERDIR/secrets/authelia_jwt_secret
+  authelia_session_secret:
+    file: $DOCKERDIR/secrets/authelia_session_secret
+  authelia_storage_encryption_key:
+    file: $DOCKERDIR/secrets/authelia_storage_encryption_key
     
 include:
   ########################### SERVICES
@@ -42,3 +48,4 @@ include:
   - compose/$HOSTNAME/guacamole.yml
   - compose/$HOSTNAME/nextcloud.yml
   - compose/$HOSTNAME/nc-redis.yml
+  - compose/$HOSTNAME/authelia.yml

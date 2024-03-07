@@ -11,7 +11,9 @@ services:
       NEXTCLOUD_TRUSTED_DOMAIN: nextcloud.$DOMAINNAME_1
       TRUSTED_PROXIES: 192.168.90.0/24,192.168.91.0/24
     volumes:
-      - /$DOCKERDIR/appdata/nextcloud:/var/www/html
+      - $DOCKERDIR/appdata/nextcloud:/var/www/html
+      - $DOCKERDIR/appdata/nextcloud/data:/var/www/html/data
+      - $DOCKERDIR/appdata/nextcloud/config:/var/www/html/config
     #ports:
     #  - 443:443
     secrets:

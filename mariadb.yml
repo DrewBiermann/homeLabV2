@@ -6,6 +6,7 @@ services:
     restart: always
     networks:
       - socket_proxy
+      - t2_proxy
     security_opt:
       - no-new-privileges:true
 #    ports:

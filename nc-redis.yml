@@ -6,5 +6,6 @@ services:
       restart: unless-stopped
       networks:
         - socket_proxy
+        - t2_proxy
       volumes:
         - $DOCKERDIR/appdata/nextcloud/data:/data

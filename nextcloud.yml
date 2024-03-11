@@ -1,21 +1,21 @@
 services:
   nextcloud:
-    image: nextcloud/bier
+    image: lscr.io/linuxserver/nextcloud:latest
     container_name: nextcloud
     restart: unless-stopped
     networks:
       - socket_proxy
     environment:
       TZ: $TZ
-      #PUID: $PUID
-      #PGID: $PGID
+      PUID: $PUID
+      PGID: $PGID
       REDIS_HOST: nc-redis
       NEXTCLOUD_TRUSTED_DOMAIN: nextcloud.$DOMAINNAME_1
       TRUSTED_PROXIES: 192.168.90.0/24,192.168.91.0/24
     volumes:
       #- $DOCKERDIR/appdata/nextcloud:/var/www/html
-      - $DOCKERDIR/appdata/nextcloud/data:/var/www/html/data
-      #- $DOCKERDIR/appdata/nextcloud/config:/var/www/html/config
+      - $DOCKERDIR/appdata/nextcloud/data:/data
+      - $DOCKERDIR/appdata/nextcloud/config:/config
     #ports:
     #  - 443:443
     secrets:

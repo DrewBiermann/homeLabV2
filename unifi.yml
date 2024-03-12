@@ -11,10 +11,9 @@ services:
   # UDP 5656-5699 Ports used by AP-EDU broadcasting.
   # UDP 10001 Port used for device discovery #REQUIRED
   # UDP 1900 Port used for "Make controller discoverable on L2 network" in controller settings.
-
   unifi:
     container_name: unifi
-    image: jacobalberty/unifi:stable
+    image: jacobalberty/unifi
     restart: unless-stopped
     networks:
       t2_proxy:
@@ -32,7 +31,7 @@ services:
       #- "8843:8843"
       #- "8880:8880"
     volumes:
-      - ${DOCKERDIR}/unifi:/unifi
+      - $DOCKERDIR/appdata/unifi:/unifi
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:

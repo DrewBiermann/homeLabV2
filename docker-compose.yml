@@ -49,3 +49,4 @@ include:
   - compose/$HOSTNAME/nextcloud.yml
   - compose/$HOSTNAME/nc-redis.yml
   - compose/$HOSTNAME/authelia.yml
+  - compose/$HOSTNAME/unifi.yml

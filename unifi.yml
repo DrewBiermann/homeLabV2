@@ -16,8 +16,8 @@ services:
     image: jacobalberty/unifi
     restart: unless-stopped
     networks:
-      - t2_proxy
-      - socket_proxy 
+      t2_proxy:
+        ipv4_address: 192.168.90.100
     security_opt:
       - no-new-privileges:true
     ports:
@@ -42,9 +42,8 @@ services:
     labels:
       - "traefik.enable=true"
       ## HTTP Routers
-      - "traefik.http.routers.unifi-rtr.entrypoints=websecure"
+      - "traefik.http.routers.unifi-rtr.entrypoints=https"
       - "traefik.http.routers.unifi-rtr.rule=HostHeader(`unifi.$DOMAINNAME_1`)"
-      - "traefik.http.routers.unifi-rtr.tls=true"
       ## Middlewares
       - "traefik.http.routers.unifi-rtr.middlewares=chain-authelia@file"
       ## HTTP Services

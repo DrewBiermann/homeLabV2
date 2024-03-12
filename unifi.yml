@@ -16,9 +16,8 @@ services:
     image: jacobalberty/unifi
     restart: unless-stopped
     networks:
-      t2_proxy:
-        ipv4_address: 192.168.90.100
-      socket_proxy: 
+      - t2_proxy
+      - socket_proxy 
     security_opt:
       - no-new-privileges:true
     ports:

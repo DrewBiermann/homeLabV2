@@ -45,6 +45,7 @@ services:
       ## HTTP Routers
       - "traefik.http.routers.unifi-rtr.entrypoints=websecure"
       - "traefik.http.routers.unifi-rtr.rule=HostHeader(`unifi.$DOMAINNAME_1`)"
+      - "traefik.http.routers.unifi-rtr.tls=true"
       ## Middlewares
       - "traefik.http.routers.unifi-rtr.middlewares=chain-authelia@file"
       ## HTTP Services

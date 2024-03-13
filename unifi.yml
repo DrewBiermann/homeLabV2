@@ -39,6 +39,13 @@ services:
       TZ: $TZ
       RUNAS_UID0: "false"
       BIND_PRIV: "false"
-    providers:
-      file:
-        directory: $DOCKERDIR/appdata/traefik2/rules/ubuntu-docker/app-unifi.controller-authelia.yml
+    labels:
+      - "traefik.enable=true"
+      ## HTTP Routers
+      - "traefik.http.routers.unifi-rtr.entrypoints=https"
+      - "traefik.http.routers.unifi-rtr.rule=HostHeader(`ufi.$DOMAINNAME`)"
+      ## Middlewares
+      - "traefik.http.routers.unifi-rtr.middlewares=chain-authelia@file"
+      ## HTTP Services
+      - "traefik.http.routers.unifi-rtr.service=unifi-svc"
+      - "traefik.http.services.unifi-svc.loadbalancer.server.port=8443"

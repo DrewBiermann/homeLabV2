@@ -43,7 +43,7 @@ services:
       - "traefik.enable=true"
       ## HTTP Routers
       - "traefik.http.routers.unifi-rtr.entrypoints=https"
-      - "traefik.http.routers.unifi-rtr.rule=HostHeader(`ufi.$DOMAINNAME`)"
+      - "traefik.http.routers.unifi-rtr.rule=HostHeader(`unifi.$DOMAINNAME_1`)"
       ## Middlewares
       - "traefik.http.routers.unifi-rtr.middlewares=chain-authelia@file"
       ## HTTP Services
